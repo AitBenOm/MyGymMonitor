@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Form, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../user/user.service";
 import {UserModel} from "../../user/user.model";
 
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  passwordRegex: any = "/^([a-zA-Z0-9]{6,})$/";
+
   registerForm: FormGroup;
 
   ngOnInit() {
@@ -20,25 +20,26 @@ export class RegisterComponent implements OnInit {
       'firstName': new FormControl(null),
       'lastName': new FormControl(null),
       'email': new FormControl(null, Validators.email),
-      'pwd1': new FormControl(null,Validators.minLength(6)),
-      //'pwd2': new FormControl(null, this.validatePwd.bind(this))
-      'pwd2': new FormControl(null)
-    })
+      'pwdGroup': new FormGroup(
+        {
+          'pwd1': new FormControl('',Validators.minLength(6)),
+          'pwd2': new FormControl('',Validators.minLength(6)),
+        }, this.passwordMatchValidator.bind(this))
+    });
+    console.log(this.registerForm);
   }
-
-  validatePwd(pwd1: FormControl):{[error: string]: boolean}{
-  let passwordRegex: any = '((?=.*\d)(?=.*[a-zA-Z]).{4,20})';
-  if(pwd1.value){
-    return {'PasswordsAreIdentical': true};
+  passwordMatchValidator(g: FormGroup) {
+    if(g.get('pwd1').value != g.get('pwd2').value){
+      return {'mismatch': true};
+    }return  null ;
   }
- return  null;
-}
-
   onRegister(){
     console.log("Registering User");
-console.log(this.registerForm.get('firstName').value);
-  this.userService.addUser(new UserModel(this.registerForm.get('firstName').value,this.registerForm.get('lastName').value,this.registerForm.get('email').value,this.registerForm.get('pwd1').value));
-
+console.log(this.registerForm);
+  this.userService.addUser(new UserModel(this.registerForm.get('firstName').value,
+    this.registerForm.get('lastName').value,this.registerForm.get('email').value,
+    this.registerForm.get('pwdGroup').get("pwd1").value));
+this.registerForm.reset();
   }
 
 }

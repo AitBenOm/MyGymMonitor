@@ -19,6 +19,8 @@ import {UserService} from "./user/user.service";
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,7 @@ import {UserService} from "./user/user.service";
     UserComponent,
     LoginComponent,
     RegisterComponent
+
 
 
 
