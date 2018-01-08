@@ -1,0 +1,23 @@
+<div class="wrapper">
+<div id="tasksPanel" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">My Programs</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Progrm Name</th>
+      <th scope="col">Creation Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let program of programs">
+      <th scope="row">{{program.id}}</th>
+      <td>{{program.name}}</td>
+      <td>{{program.creationDate}}</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
