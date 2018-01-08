@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a routerLink="/" class="navbar-brand">GymMonitor</a>
+      <a routerLink="/program" class="navbar-brand">GymMonitor</a>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -12,12 +12,13 @@
           <li><a style="cursor: pointer;" routerLink="/login"  ><span class="glyphicon glyphicon-log-in"></span> LogIn</a></li>
 
 
-        <li class="dropdown" appDropdown >
+
+        <li class="dropdown" appDropdown  >
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
 
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" >
             <li><a style="cursor: pointer;"  ><span class="glyphicon glyphicon-user"></span> Profil </a></li>
-            <li><a style="cursor: pointer;"><span class="glyphicon glyphicon-th-list" ></span> Program </a></li>
+            <li><a style="cursor: pointer;"  routerLink="/program"><span class="glyphicon glyphicon-th-list" ></span> Program </a></li>
             <li><a style="cursor: pointer;"><span class="glyphicon glyphicon-log-out" ></span> Logout </a></li>
 
 

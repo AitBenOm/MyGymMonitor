@@ -7,7 +7,8 @@ private _email: string;
 private _pwd: string
 
 
-  constructor(firstName: string, lastName: string, email: string, pwd: string) {
+  constructor(id: number, firstName: string, lastName: string, email: string, pwd: string) {
+    this._id = id;
     this._firstName = firstName;
     this._lastName = lastName;
     this._email = email;

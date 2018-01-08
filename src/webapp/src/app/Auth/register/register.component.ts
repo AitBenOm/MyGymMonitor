@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
   onRegister(){
     console.log("Registering User");
 console.log(this.registerForm);
-  this.userService.addUser(new UserModel(this.registerForm.get('firstName').value,
+  this.userService.addUser(new UserModel(this.userService.users.length+1,this.registerForm.get('firstName').value,
     this.registerForm.get('lastName').value,this.registerForm.get('email').value,
     this.registerForm.get('pwdGroup').get("pwd1").value));
 this.registerForm.reset();
