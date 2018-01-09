@@ -17,4 +17,8 @@ export class ProgramListComponent implements OnInit {
     this.programs=this.programService.programs;
   }
 
+  onShowDetail(id: number){
+    console.log(id)
+  }
+
 }

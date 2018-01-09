@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div id="tasksPanel" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">My Execrcises</h3>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Exercise</th>
+          <!--<th scope="col">Last Modification</th>-->
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="cursor: pointer"  *ngFor="let exercise of program.exercises; let i=index">
+
+          <th scope="row">{{exercise.id}}</th>
+          <td><a [routerLink]="'../exercise/[index]'">{{exercise.name}}</a></td>
+
+        </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+ <router-outlet></router-outlet>
+  </div>
+

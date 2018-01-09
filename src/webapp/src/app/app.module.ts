@@ -17,6 +17,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserService} from "./user/user.service";
 import { AddProgramComponent } from './program/add-program/add-program.component';
 import { ProgramListComponent } from './program/program-list/program-list.component';
+import { ProgramDetailComponent } from './program/program-detail/program-detail.component';
+import { ProgramItemComponent } from './program/program-list/program-item/program-item.component';
+import {ProgramService} from "./program/program.service";
+import { ExerciseListComponent } from './exercise/exercise-list/exercise-list.component';
 
 
 
@@ -34,7 +38,10 @@ import { ProgramListComponent } from './program/program-list/program-list.compon
     LoginComponent,
     RegisterComponent,
     AddProgramComponent,
-    ProgramListComponent
+    ProgramListComponent,
+    ProgramDetailComponent,
+    ProgramItemComponent,
+    ExerciseListComponent
 
 
 
@@ -46,7 +53,7 @@ import { ProgramListComponent } from './program/program-list/program-list.compon
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService,ProgramService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

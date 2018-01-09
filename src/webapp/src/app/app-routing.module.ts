@@ -7,14 +7,22 @@ import {LoginComponent} from "./Auth/login/login.component";
 import {RegisterComponent} from "./Auth/register/register.component";
 import {AppComponent} from "./app.component";
 import {ProgramComponent} from "./program/program.component";
+import {ProgramDetailComponent} from "./program/program-detail/program-detail.component";
+import {ExerciseComponent} from "./exercise/exercise.component";
+import {ExerciseListComponent} from "./exercise/exercise-list/exercise-list.component";
 
 
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   //{ path: 'recipes', loadChildren: './recipes/recipes.module.ts#RecipesModule'},
-  {path: '', component: AppComponent},
-  {path: 'program', component: ProgramComponent},
+  {path: '', redirectTo: '/program', pathMatch: 'full' },
+  {path: 'program', component: ProgramComponent, children: [
+    { path: ':id', component: ProgramDetailComponent },
+  ]},
+  {path: 'exercise', component: ExerciseComponent, children: [
+    { path: ':id', component: ExerciseListComponent },
+  ]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
